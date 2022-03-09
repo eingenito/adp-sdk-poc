@@ -1,0 +1,141 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: "ArtifaktElement", Tahoma, sans-serif;
+            font-weight: 200;
+            font-size: 1.05rem;
+            letter-spacing: 0.05rem;
+            line-height: 1.5;
+            color: #666;
+        }
+
+        h1 {
+            font-weight: 200;
+            font-size: clamp(1.125rem, calc(1.06rem + 0.278vw), 1.3125rem);
+            letter-spacing: 0;
+            line-height: 1.25;
+        }
+
+        h2 {
+            font-weight: 200;
+            font-size: clamp(1.125rem, calc(1.06rem + 0.278vw), 1.3125rem);
+            letter-spacing: 0;
+            line-height: 1.25;
+        }
+
+        .column {
+            -webkit-flex-direction: column;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .title {
+            background-color: rgb(242, 242, 242);
+            padding: 1em;
+        }
+
+        .title h1 {
+            margin: 0;
+        }
+
+        .contents {
+            margin: 0 1em;
+            /*flex: 1;*/
+        }
+
+        .contents-learn {
+            display: flex;
+            -webkit-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+        }
+
+        .contents-learn div {
+            margin: 0.8em 0 1.5em 0;
+            padding: 0.3em 1.2em;
+        }
+
+        .contents-learn-learn-more {
+            margin: 0.5em 0;
+            padding: 0.3em 1.2em;
+            border-color: #BBB;
+            border-style: solid;
+            border-width: 2px;
+            border-radius: 3px;
+        }
+
+        .contents-learn-create-macro {
+            cursor: pointer;
+            color: #4499BB;
+        }
+
+        .contents-macro {
+            margin: 0.5em 0;
+            padding: 0.5em;
+            border-color: #212121;
+            border-style: solid;
+            border-width: 1.5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .footer {
+            display: flex;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+            background-color: rgb(242, 242, 242);
+            padding: 1em;
+        }
+
+        .footer-yes-no {
+            display: flex;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+        }
+
+        .footer-yes-no div {
+            margin-left: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="column">
+        <div class="title">
+            <h1>Macros</h1>
+        </div>
+        <div class="contents">
+            <h2>The "Ready for Dimensioning" macro may help you to save time</h2>
+            <p>Follow standards by selecting the correct layer and style in advance of dimensioning.</p>
+            <div class="contents-macro">
+                ^C^C<br/>
+                _DIMLAYER;{sLayerName};<br/>
+                _-DIMSTYLE;{sDimStyleName};<br/>
+                _DIM<br/>
+            </div>
+            <div class="contents-learn">
+                <div class="contents-learn-learn-more">Learn more</div>
+                <div class="contents-learn-create-macro">Create action macro</div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-text">
+                Is this helpful?
+            </div>
+            <div class="footer-yes-no">
+                <div class="footer-yes">
+                    Yes
+                </div>
+                <div class="footer-no">
+                    No
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    </script>
+</body>
+
+</html>
