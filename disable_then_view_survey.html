@@ -1,0 +1,178 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .initial-prompt {
+            font-size: 26px;
+            margin: 0 0 14px 0;
+        }
+
+        .rating-button {
+            margin: 0 10px 0 10px;
+            width: 80px;
+            height: 80px;
+        }
+
+        .center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px;
+            text-align: center;
+        }
+
+        .satisfaction-text {
+            color: rgb(0, 0, 0);
+            font-size: 23px;
+            margin: 12px;
+        }
+
+        .buttons-legend-container {
+            width: 520px;
+            height: 55px;
+            margin: auto;
+        }
+
+        .very-dissatisfied {
+            display: block;
+            float: left;
+        }
+
+        .very-satisfied {
+            display: block;
+            float: right;
+        }
+
+        .survey-feedback-question {
+            font-size: 23px;
+            margin: 4px;
+        }
+
+        .textarea-wrapper {
+            width: 500px;
+            height: 120px;
+            margin: 10px auto;
+        }
+
+        textarea {
+            border-bottom: 10px solid #0696D7 !important;
+            border-left: 2px solid rgb(180, 180, 180);
+            border-right: 2px solid rgb(180, 180, 180);
+            border-top: 2px solid rgb(180, 180, 180);
+            margin-top: 5px;
+            padding-right: 5px;
+            font-size: 20px;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            resize: none;
+            border-radius: 8px;
+        }
+
+        .button {
+            background-color: #0696D7;
+            border: none;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 25px;
+            margin: 32px 0 10px 0;
+            border-radius: 5px;
+            height: 70px;
+            width: 210px;
+        }
+
+        * {
+            font-family: "ArtifaktElement", Tahoma !important;
+        }
+
+        .buttons {
+            height: 100px;
+            width: 500px;
+            text-align: center;
+            margin: 10px auto;
+        }
+
+        .star-rated {
+            unicode-bidi: bidi-override;
+            direction: rtl;
+            font-size: 90px;
+            letter-spacing: -10px;
+            color: #a9c1cc;
+            margin: -20px 0 0 0;
+        }
+
+        .star-rated>span {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .star-rated>span:hover:before,
+        .star-rated>span:hover~span:before,
+        .star-rated>span.upstar-rated:before,
+        .star-rated>span.upstar-rated~span:before {
+            content: "\2605";
+            position: absolute;
+            color: #0696D7;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <div class="initial-prompt">
+            How satisfied are you with Disable then view?
+        </div>
+        <div class="buttons">
+            <div id="Appstar-rated" class="star-rated">
+                <span id="spanstar-ratedFirst" title="5">☆</span>
+                <span id="spanstar-ratedsecond" title="4">☆</span>
+                <span id="spanstar-ratedthird" title="3">☆</span>
+                <span id="spanstar-ratedFourth" title="2">☆</span>
+                <span id="spanstar-ratedFifth" title="1">☆</span>
+            </div>
+        </div>
+        <div class="buttons-legend-container">
+            <span class="very-dissatisfied satisfaction-text"><strong>Very Dissatisfied</strong></span>
+            <span class="very-satisfied satisfaction-text"><strong>Very Satisfied</strong></span>
+        </div>
+        <div class="survey-feedback-question">
+            <strong>What do you like or dislike?&nbsp;(Optional)</strong>
+        </div>
+        <div class="textarea-wrapper"><textarea
+                placeholder="This is not a support form. Please do not include personal or confidential data."></textarea>
+        </div>
+        <div class="button-wrapper">
+            <button class="button" onClick="javascript:document.title = 'CLOSE';">Submit</button>
+        </div>
+        <div class="footer-text">
+            This feedback will be used to improve Autodesk products.
+        </div>
+        <div class="learn-more-link">
+            <a href="https://help.autodesk.com/view/RVT/2022/ENU/?guid=GUID-3F97B790-010C-4D02-8D4E-6BEF78A82C75">Learn
+                More</a>
+        </div>
+    </div>
+    <script>
+        document.getElementById('Appstar-rated').addEventListener('click', function (event) {
+            if (event.target.tagName.toLowerCase() != 'span') return;
+
+            if (event.target.classList.contains('upstar-rated')) {
+                event.target.classList.remove('upstar-rated');
+            } else {
+                Array.prototype.forEach.call(document.getElementsByClassName('upstar-rated'), function (el) {
+                    el.classList.remove('upstar-rated');
+                });
+                event.target.classList.add('upstar-rated');
+            }
+        });
+    </script>
+</body>
+
+</html>
